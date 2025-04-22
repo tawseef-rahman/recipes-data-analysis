@@ -138,6 +138,38 @@
 
 <h2 id="data-cleaning-and-exploratory-data-analysis">Data Cleaning and Exploratory Data Analysis</h2>
 
+<h3 id="data-cleaning">Data Cleaning</h3>
+
+<h4 id="data-cleaning-and-preparation">Data Cleaning and Preparation</h4>
+
+<p>Before analyzing the relationship between review count and average rating, it was essential for me to clean and preprocess the raw data. The original <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code> dataset contains metadata and nutritional information for each recipe. The original <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset contains individual user interactions, including ratings and written reviews. These raw datasets contained a variety of formats and inconsistencies that needed to be addressed before performing any meaningful analysis.</p>
+
+<ol>
+  <li>Loading the Datasets<br />
+I started by loading both datasets using <code class="language-plaintext highlighter-rouge">pandas</code>.</li>
+  <li>Converting and Expanding the Nutrition Data<br />
+In <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code>, the <code class="language-plaintext highlighter-rouge">nutrition</code> column is stored as a string representation of a list. To analyze nutritional content, I needed to convert it into an actual list and separate it into meaningful components.</li>
+</ol>
+
+<p>I applied the <code class="language-plaintext highlighter-rouge">eval()</code> function to transform the string into a Python list.
+I then expanded this list into individual nutrition columns: <code class="language-plaintext highlighter-rouge">calories</code>, <code class="language-plaintext highlighter-rouge">total_fat_PDV</code>, <code class="language-plaintext highlighter-rouge">sugar_PDV</code>, <code class="language-plaintext highlighter-rouge">sodium_PDV</code>, <code class="language-plaintext highlighter-rouge">protein_PDV</code>, <code class="language-plaintext highlighter-rouge">saturated_fat_PDV</code>, and <code class="language-plaintext highlighter-rouge">carbohydrates_PDV</code>.<br />
+This step enabled me to treat nutritional data as structured numerical values, making it possible to include them in future quantitative analyses or visualizations.</p>
+
+<ol>
+  <li>Merging Recipe and Interaction Data
+I then joined the two datasets using a <strong>left join</strong> on <code class="language-plaintext highlighter-rouge">id</code> from the <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code> dataset and <code class="language-plaintext highlighter-rouge">recipe_id</code> from the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset. This preserved all recipe entries, even those without user interactions.
+This step connected user-generated ratings and reviews to specific recipes, allowing me to measure popularity (<code class="language-plaintext highlighter-rouge">review</code> count) and perceived quality (<code class="language-plaintext highlighter-rouge">avg_rating</code>) for each recipe.</li>
+  <li>Handling Invalid Ratings
+Some ratings in the dataset had a value of <code class="language-plaintext highlighter-rouge">0</code>, which is not a valid rating on a typical 1-5 scale. These entries were likely due to user error or placeholder values; I replaced the <code class="language-plaintext highlighter-rouge">0</code> values with <code class="language-plaintext highlighter-rouge">NaN</code> to prevent skewing the results.
+This step ensured that the average rating calculations were accurate and not artificially deflated by invalid scores.</li>
+  <li>Calculating Average Rating Per Recipe
+I then calculated the mean rating for each recipe using the cleaned ratings and merged this value back into the main dataset as a new column, <code class="language-plaintext highlighter-rouge">avg_rating</code>.
+The <code class="language-plaintext highlighter-rouge">avg_rating</code> column is central to my project question. By aggregating this value for each recipe, I can compare it meaningfully to the number of reviews it received.</li>
+  <li>Extracting the Year of Submission
+The <code class="language-plaintext highlighter-rouge">date</code> column in the interactions dataset records the timestamp of each interaction. I converted the date into a <code class="language-plaintext highlighter-rouge">year</code> column to make it easier for me to analyze trends over time.
+This step allowed for temporal analyses - like examining whether newer recipes tend to receive higher ratings or more reviews.</li>
+</ol>
+
 <h2 id="framing-a-prediction-problem">Framing a Prediction Problem</h2>
 
 <h2 id="baseline-model">Baseline Model</h2>
