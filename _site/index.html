@@ -1,8 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
+
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=201a27d40d432138b8fa17f3888095e7afa9b801">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Welcome to my website… | [“What Do We Think of the Recipes?”]</title>
@@ -21,25 +24,7 @@
 {"@context":"https://schema.org","@type":"WebSite","description":"[“By Tawseef Rahman (tawseefr@umich.edu)”]","headline":"Welcome to my website…","name":"[“What Do We Think of the Recipes?”]","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=5be118b332c408331add7439142fc61635505605">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="/assets/js/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="/assets/css/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-
-<!-- Setup theme-color -->
-<!-- start theme color meta headers -->
-<meta name="theme-color" content="#353535">
-<meta name="msapplication-navbutton-color" content="#353535">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<!-- end theme color meta headers -->
-
 
 <!-- Setup Google Analytics -->
 
@@ -51,27 +36,26 @@
 <!-- end custom head snippets -->
 
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <ul>
-            <li class="fork"><a href="https://github.com/tawseef-rahman/recipes-data-analysis">View On GitHub</a></li>
-            
-          </ul>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          
+            <a id="forkme_banner" href="https://github.com/tawseef-rahman/recipes-data-analysis">View on GitHub</a>
+          
 
-      <section>
-        <div id="title">
-          <h1>What Do We Think of the Recipes?</h1>
-          <p>By Tawseef Rahman (tawseefr@umich.edu)</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/tawseef-rahman">tawseef-rahman</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
-        </div>
+          <h1 id="project_title">What Do We Think of the Recipes?</h1>
+          <h2 id="project_tagline">By Tawseef Rahman (tawseefr@umich.edu)</h2>
 
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1 id="welcome-to-my-website">Welcome to my website…</h1>
 
 <h2 id="for-the-eecs-398-final-project">for the EECS 398 Final Project!</h2>
@@ -147,28 +131,350 @@
 <ol>
   <li>Loading the Datasets<br />
 I started by loading both datasets using <code class="language-plaintext highlighter-rouge">pandas</code>.</li>
-  <li>Converting and Expanding the Nutrition Data<br />
-In <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code>, the <code class="language-plaintext highlighter-rouge">nutrition</code> column is stored as a string representation of a list. To analyze nutritional content, I needed to convert it into an actual list and separate it into meaningful components.</li>
-</ol>
-
-<p>I applied the <code class="language-plaintext highlighter-rouge">eval()</code> function to transform the string into a Python list.
-I then expanded this list into individual nutrition columns: <code class="language-plaintext highlighter-rouge">calories</code>, <code class="language-plaintext highlighter-rouge">total_fat_PDV</code>, <code class="language-plaintext highlighter-rouge">sugar_PDV</code>, <code class="language-plaintext highlighter-rouge">sodium_PDV</code>, <code class="language-plaintext highlighter-rouge">protein_PDV</code>, <code class="language-plaintext highlighter-rouge">saturated_fat_PDV</code>, and <code class="language-plaintext highlighter-rouge">carbohydrates_PDV</code>.<br />
-This step enabled me to treat nutritional data as structured numerical values, making it possible to include them in future quantitative analyses or visualizations.</p>
-
-<ol>
+  <li>
+    <p>Converting and Expanding the Nutrition Data<br />
+In <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code>, the <code class="language-plaintext highlighter-rouge">nutrition</code> column is stored as a string representation of a list. To analyze nutritional content, I needed to convert it into an actual list and separate it into meaningful components.<br />
+ I applied the <code class="language-plaintext highlighter-rouge">eval()</code> function to transform the string into a Python list.<br />
+ I then expanded this list into individual nutrition columns: <code class="language-plaintext highlighter-rouge">calories</code>, <code class="language-plaintext highlighter-rouge">total_fat_PDV</code>, <code class="language-plaintext highlighter-rouge">sugar_PDV</code>, <code class="language-plaintext highlighter-rouge">sodium_PDV</code>, <code class="language-plaintext highlighter-rouge">protein_PDV</code>, <code class="language-plaintext highlighter-rouge">saturated_fat_PDV</code>, and <code class="language-plaintext highlighter-rouge">carbohydrates_PDV</code>.<br />
+ This step enabled me to treat nutritional data as structured numerical values, making it possible to include them in future quantitative analyses or visualizations.</p>
+  </li>
   <li>Merging Recipe and Interaction Data
-I then joined the two datasets using a <strong>left join</strong> on <code class="language-plaintext highlighter-rouge">id</code> from the <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code> dataset and <code class="language-plaintext highlighter-rouge">recipe_id</code> from the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset. This preserved all recipe entries, even those without user interactions.
+I then joined the two datasets using a <strong>left join</strong> on <code class="language-plaintext highlighter-rouge">id</code> from the <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code> dataset and <code class="language-plaintext highlighter-rouge">recipe_id</code> from the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset. This preserved all recipe entries, even those without user interactions.<br />
 This step connected user-generated ratings and reviews to specific recipes, allowing me to measure popularity (<code class="language-plaintext highlighter-rouge">review</code> count) and perceived quality (<code class="language-plaintext highlighter-rouge">avg_rating</code>) for each recipe.</li>
   <li>Handling Invalid Ratings
-Some ratings in the dataset had a value of <code class="language-plaintext highlighter-rouge">0</code>, which is not a valid rating on a typical 1-5 scale. These entries were likely due to user error or placeholder values; I replaced the <code class="language-plaintext highlighter-rouge">0</code> values with <code class="language-plaintext highlighter-rouge">NaN</code> to prevent skewing the results.
+Some ratings in the dataset had a value of <code class="language-plaintext highlighter-rouge">0</code>, which is not a valid rating on a typical 1-5 scale. These entries were likely due to user error or placeholder values; I replaced the <code class="language-plaintext highlighter-rouge">0</code> values with <code class="language-plaintext highlighter-rouge">NaN</code> to prevent skewing the results.<br />
 This step ensured that the average rating calculations were accurate and not artificially deflated by invalid scores.</li>
   <li>Calculating Average Rating Per Recipe
-I then calculated the mean rating for each recipe using the cleaned ratings and merged this value back into the main dataset as a new column, <code class="language-plaintext highlighter-rouge">avg_rating</code>.
+I then calculated the mean rating for each recipe using the cleaned ratings and merged this value back into the main dataset as a new column, <code class="language-plaintext highlighter-rouge">avg_rating</code>.<br />
 The <code class="language-plaintext highlighter-rouge">avg_rating</code> column is central to my project question. By aggregating this value for each recipe, I can compare it meaningfully to the number of reviews it received.</li>
   <li>Extracting the Year of Submission
-The <code class="language-plaintext highlighter-rouge">date</code> column in the interactions dataset records the timestamp of each interaction. I converted the date into a <code class="language-plaintext highlighter-rouge">year</code> column to make it easier for me to analyze trends over time.
+The <code class="language-plaintext highlighter-rouge">date</code> column in the interactions dataset records the timestamp of each interaction. I converted the date into a <code class="language-plaintext highlighter-rouge">year</code> column to make it easier for me to analyze trends over time.<br />
 This step allowed for temporal analyses - like examining whether newer recipes tend to receive higher ratings or more reviews.</li>
 </ol>
+
+<h4 id="head-of-the-cleaned-dataframed"><code class="language-plaintext highlighter-rouge">head</code> of the cleaned DataFramed</h4>
+
+<p>Here’s the head of the cleaned <code class="language-plaintext highlighter-rouge">merged_recipes_df</code> DataFrame:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">name</th>
+      <th style="text-align: right">id</th>
+      <th style="text-align: right">minutes</th>
+      <th style="text-align: right">contributor_id</th>
+      <th style="text-align: left">submitted</th>
+      <th style="text-align: left">tags</th>
+      <th style="text-align: right">n_steps</th>
+      <th style="text-align: left">steps</th>
+      <th style="text-align: left">description</th>
+      <th style="text-align: left">ingredients</th>
+      <th style="text-align: right">n_ingredients</th>
+      <th style="text-align: right">calories</th>
+      <th style="text-align: right">total_fat_PDV</th>
+      <th style="text-align: right">sugar_PDV</th>
+      <th style="text-align: right">sodium_PDV</th>
+      <th style="text-align: right">protein_PDV</th>
+      <th style="text-align: right">saturated_fat_PDV</th>
+      <th style="text-align: right">carbohydrates_PDV</th>
+      <th style="text-align: right">user_id</th>
+      <th style="text-align: right">recipe_id</th>
+      <th style="text-align: left">date</th>
+      <th style="text-align: right">rating</th>
+      <th style="text-align: left">review</th>
+      <th style="text-align: right">avg_rating</th>
+      <th style="text-align: right">year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1 brownies in the world best ever</td>
+      <td style="text-align: right">333281</td>
+      <td style="text-align: right">40</td>
+      <td style="text-align: right">985201</td>
+      <td style="text-align: left">2008-10-27</td>
+      <td style="text-align: left">[‘60-minutes-or-less’, ‘time-to-make’, ‘course’, ‘main-ingredient’, ‘preparation’, ‘for-large-groups’, ‘desserts’, ‘lunch’, ‘snacks’, ‘cookies-and-brownies’, ‘chocolate’, ‘bar-cookies’, ‘brownies’, ‘number-of-servings’]</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: left">[‘heat the oven to 350f and arrange the rack in the middle’, ‘line an 8-by-8-inch glass baking dish with aluminum foil’, ‘combine chocolate and butter in a medium saucepan and cook over medium-low heat , stirring frequently , until evenly melted’, ‘remove from heat and let cool to room temperature’, ‘combine eggs , sugar , cocoa powder , vanilla extract , espresso , and salt in a large bowl and briefly stir until just evenly incorporated’, ‘add cooled chocolate and mix until uniform in color’, ‘add flour and stir until just incorporated’, ‘transfer batter to the prepared baking dish’, ‘bake until a tester inserted in the center of the brownies comes out clean , about 25 to 30 minutes’, ‘remove from the oven and cool completely before cutting’]</td>
+      <td style="text-align: left">these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you’ll ever make…..sereiously! there’s no doubt that these will be your fav brownies ever for you can add things to them or make them plain…..either way they’re pure heaven!</td>
+      <td style="text-align: left">[‘bittersweet chocolate’, ‘unsalted butter’, ‘eggs’, ‘granulated sugar’, ‘unsweetened cocoa powder’, ‘vanilla extract’, ‘brewed espresso’, ‘kosher salt’, ‘all-purpose flour’]</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">138.4</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: right">50</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">19</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">386585</td>
+      <td style="text-align: right">333281</td>
+      <td style="text-align: left">2008-11-19</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: left">These were pretty good, but took forever to bake. I would send it ended up being almost an hour! Even then, the brownies stuck to the foil, and were on the overly moist side and not easy to cut. They did taste quite rich, though! Made for My 3 Chefs.</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">2008</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1 in canada chocolate chip cookies</td>
+      <td style="text-align: right">453467</td>
+      <td style="text-align: right">45</td>
+      <td style="text-align: right">1848091</td>
+      <td style="text-align: left">2011-04-11</td>
+      <td style="text-align: left">[‘60-minutes-or-less’, ‘time-to-make’, ‘cuisine’, ‘preparation’, ‘north-american’, ‘for-large-groups’, ‘canadian’, ‘british-columbian’, ‘number-of-servings’]</td>
+      <td style="text-align: right">12</td>
+      <td style="text-align: left">[‘pre-heat oven the 350 degrees f’, ‘in a mixing bowl , sift together the flours and baking powder’, ‘set aside’, ‘in another mixing bowl , blend together the sugars , margarine , and salt until light and fluffy’, ‘add the eggs , water , and vanilla to the margarine / sugar mixture and mix together until well combined’, ‘add in the flour mixture to the wet ingredients and blend until combined’, ‘scrape down the sides of the bowl and add the chocolate chips’, ‘mix until combined’, ‘scrape down the sides to the bowl again’, ‘using an ice cream scoop , scoop evenly rounded balls of dough and place of cookie sheet about 1 - 2 inches apart to allow for spreading during baking’, ‘bake for 10 - 15 minutes or until golden brown on the outside and soft &amp; chewy in the center’, ‘serve hot and enjoy !’]</td>
+      <td style="text-align: left">this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don’t have margarine or don’t like it, then just use butter (softened) instead.</td>
+      <td style="text-align: left">[‘white sugar’, ‘brown sugar’, ‘salt’, ‘margarine’, ‘eggs’, ‘vanilla’, ‘water’, ‘all-purpose flour’, ‘whole wheat flour’, ‘baking soda’, ‘chocolate chips’]</td>
+      <td style="text-align: right">11</td>
+      <td style="text-align: right">595.1</td>
+      <td style="text-align: right">46</td>
+      <td style="text-align: right">211</td>
+      <td style="text-align: right">22</td>
+      <td style="text-align: right">13</td>
+      <td style="text-align: right">51</td>
+      <td style="text-align: right">26</td>
+      <td style="text-align: right">424680</td>
+      <td style="text-align: right">453467</td>
+      <td style="text-align: left">2012-01-26</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: left">Originally I was gonna cut the recipe in half (just the 2 of us here), but then we had a park-wide yard sale, &amp; I made the whole batch &amp; used them as enticements for potential buyers ~ what the hey, a free cookie as delicious as these are, definitely works its magic! Will be making these again, for sure! Thanks for posting the recipe!</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">2012</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">412 broccoli casserole</td>
+      <td style="text-align: right">306168</td>
+      <td style="text-align: right">40</td>
+      <td style="text-align: right">50969</td>
+      <td style="text-align: left">2008-05-30</td>
+      <td style="text-align: left">[‘60-minutes-or-less’, ‘time-to-make’, ‘course’, ‘main-ingredient’, ‘preparation’, ‘side-dishes’, ‘vegetables’, ‘easy’, ‘beginner-cook’, ‘broccoli’]</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: left">[‘preheat oven to 350 degrees’, ‘spray a 2 quart baking dish with cooking spray , set aside’, ‘in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce’, ‘pour into baking dish , sprinkle remaining cheese over top’, ‘bake for 25 minutes or until cheese is lightly browned’, ‘sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes’]</td>
+      <td style="text-align: left">since there are already 411 recipes for broccoli casserole posted to “zaar” ,i decided to call this one #412 broccoli casserole.i don’t think there are any like this one in the database. i based this one on the famous “green bean casserole” from campbell’s soup. but i think mine is better since i don’t like cream of mushroom soup.submitted to “zaar” on may 28th,2008</td>
+      <td style="text-align: left">[‘frozen broccoli cuts’, ‘cream of chicken soup’, ‘sharp cheddar cheese’, ‘garlic powder’, ‘ground black pepper’, ‘salt’, ‘milk’, ‘soy sauce’, ‘french-fried onions’]</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">194.8</td>
+      <td style="text-align: right">20</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">32</td>
+      <td style="text-align: right">22</td>
+      <td style="text-align: right">36</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">29782</td>
+      <td style="text-align: right">306168</td>
+      <td style="text-align: left">2008-12-31</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: left">This was one of the best broccoli casseroles that I have ever made. I made my own chicken soup for this recipe. I was a bit worried about the tsp of soy sauce but it gave the casserole the best flavor. YUM!</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">2008</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left">The photos you took (shapeweaver) inspired me to make this recipe and it actually does look just like them when it comes out of the oven.</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: left">Thanks so much for sharing your recipe shapeweaver. It was wonderful! Going into my family’s favorite Zaar cookbook :)</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">412 broccoli casserole</td>
+      <td style="text-align: right">306168</td>
+      <td style="text-align: right">40</td>
+      <td style="text-align: right">50969</td>
+      <td style="text-align: left">2008-05-30</td>
+      <td style="text-align: left">[‘60-minutes-or-less’, ‘time-to-make’, ‘course’, ‘main-ingredient’, ‘preparation’, ‘side-dishes’, ‘vegetables’, ‘easy’, ‘beginner-cook’, ‘broccoli’]</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: left">[‘preheat oven to 350 degrees’, ‘spray a 2 quart baking dish with cooking spray , set aside’, ‘in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce’, ‘pour into baking dish , sprinkle remaining cheese over top’, ‘bake for 25 minutes or until cheese is lightly browned’, ‘sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes’]</td>
+      <td style="text-align: left">since there are already 411 recipes for broccoli casserole posted to “zaar” ,i decided to call this one #412 broccoli casserole.i don’t think there are any like this one in the database. i based this one on the famous “green bean casserole” from campbell’s soup. but i think mine is better since i don’t like cream of mushroom soup.submitted to “zaar” on may 28th,2008</td>
+      <td style="text-align: left">[‘frozen broccoli cuts’, ‘cream of chicken soup’, ‘sharp cheddar cheese’, ‘garlic powder’, ‘ground black pepper’, ‘salt’, ‘milk’, ‘soy sauce’, ‘french-fried onions’]</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">194.8</td>
+      <td style="text-align: right">20</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">32</td>
+      <td style="text-align: right">22</td>
+      <td style="text-align: right">36</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">1.19628e+06</td>
+      <td style="text-align: right">306168</td>
+      <td style="text-align: left">2009-04-13</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: left">I made this for my son’s first birthday party this weekend. Our guests INHALED it! Everyone kept saying how delicious it was. I was I could have gotten to try it.</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">2009</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">412 broccoli casserole</td>
+      <td style="text-align: right">306168</td>
+      <td style="text-align: right">40</td>
+      <td style="text-align: right">50969</td>
+      <td style="text-align: left">2008-05-30</td>
+      <td style="text-align: left">[‘60-minutes-or-less’, ‘time-to-make’, ‘course’, ‘main-ingredient’, ‘preparation’, ‘side-dishes’, ‘vegetables’, ‘easy’, ‘beginner-cook’, ‘broccoli’]</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: left">[‘preheat oven to 350 degrees’, ‘spray a 2 quart baking dish with cooking spray , set aside’, ‘in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce’, ‘pour into baking dish , sprinkle remaining cheese over top’, ‘bake for 25 minutes or until cheese is lightly browned’, ‘sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes’]</td>
+      <td style="text-align: left">since there are already 411 recipes for broccoli casserole posted to “zaar” ,i decided to call this one #412 broccoli casserole.i don’t think there are any like this one in the database. i based this one on the famous “green bean casserole” from campbell’s soup. but i think mine is better since i don’t like cream of mushroom soup.submitted to “zaar” on may 28th,2008</td>
+      <td style="text-align: left">[‘frozen broccoli cuts’, ‘cream of chicken soup’, ‘sharp cheddar cheese’, ‘garlic powder’, ‘ground black pepper’, ‘salt’, ‘milk’, ‘soy sauce’, ‘french-fried onions’]</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">194.8</td>
+      <td style="text-align: right">20</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">32</td>
+      <td style="text-align: right">22</td>
+      <td style="text-align: right">36</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">768828</td>
+      <td style="text-align: right">306168</td>
+      <td style="text-align: left">2013-08-02</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: left">Loved this. Be sure to completely thaw the broccoli. I didn't and it didn't get done in time specified. Just cooked it a little longer though and it was perfect. Thanks Chef.</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">2013</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="univariate-analysis">Univariate Analysis</h3>
+
+<h4 id="plotly-plot-1-histogram-that-displays-the-distribution-of-average-ratings-avg_rating-for-recipes"><code class="language-plaintext highlighter-rouge">plotly</code> plot 1: <strong>Histogram</strong> that displays the distribution of average ratings (<code class="language-plaintext highlighter-rouge">avg_rating</code>) for recipes:</h4>
+
+<p>The histogram shows that the distribution of average recipe ratings is <strong>left-skewed</strong>, with most recipes receiving high ratings. However, there is a noticable drop between the number of recipes with an <strong>average rating of 4.5</strong> and those with a <strong>perfect 5.0</strong>, suggesting that while many recipes are well-received, far fewer consistently earn top marks.</p>
+
+<h4 id="plotly-plot-2-histogram-that-displays-the-distribution-of-the-number-of-steps-n_steps-for-recipes"><code class="language-plaintext highlighter-rouge">plotly</code> plot 2: <strong>Histogram</strong> that displays the distribution of the number of steps (<code class="language-plaintext highlighter-rouge">n_steps</code>) for recipes:</h4>
+
+<p>The histogram of recipe steps is <strong>right-skewed</strong>, indicating that while some recipes are quite complex, the majority involve a manageable <strong>5 to 10 steps</strong>. This suggests that most users tend to submit relatively simple recipes - which may attract more reviews and higher ratings due to their accessibility, a factor worth considering when exploring the relationship between review count and average rating.</p>
+
+<h3 id="bivariate-analysis">Bivariate Analysis</h3>
+
+<h4 id="plotly-plot-3-scatter-plot-that-displays-the-relationship-between-the-number-of-reviews-review-count-and-average-rating-avg_rating"><code class="language-plaintext highlighter-rouge">plotly</code> plot 3: <strong>Scatter plot</strong> that displays the relationship between the number of reviews (<code class="language-plaintext highlighter-rouge">review</code> count) and average rating (<code class="language-plaintext highlighter-rouge">avg_rating</code>)</h4>
+
+<p>The scatter plot shows that most recipes cluster around <strong>20 to 40 reviews</strong> with <strong>average ratings between 4 and 5</strong>. While this suggests that popular recipes tend to be highly rated, the relatively flat trend line indicates <strong>no strong linear relationship</strong> between review count and average rating - implying that simply having more reviews doesn’t necessarily mean a recipe is rated higher.</p>
+
+<h4 id="plotly-plot-4-bar-chart-that-displays-the-distribution-of-the-average-percentage-of-daily-value-in-sugar-sugar_pdv-for-recipes-at-or-below-2000-calories-in-recipes-by-year-year"><code class="language-plaintext highlighter-rouge">plotly</code> plot 4: <strong>Bar chart</strong> that displays the distribution of the average percentage of daily value in sugar (<code class="language-plaintext highlighter-rouge">sugar_PDV</code>) for recipes at or below 2,000 calories in recipes by year (<code class="language-plaintext highlighter-rouge">year</code>)</h4>
+
+<p>The bar chart reveals that the <strong>average sugar percentage of daily value</strong> in recipes has remained relatively stable since 2008, but shows a noticable <strong>increase beginning around 2015</strong>, with peaks in <strong>2015 and 2018</strong>, which suggests that in recent years, users may be submitted <strong>sweeter or less health-conscious recipes</strong>. To ensure a more accurate representation, this analysis includes only recipes with <strong>2,000 calories or fewer</strong>, as those above that threshold contained <strong>extreme outliers in sugar content</strong> that skewed the data.</p>
+
+<h3 id="interesting-aggregates">Interesting Aggregates</h3>
+
+<p>Here’s a pivot table that summarizes the yearly trends (<code class="language-plaintext highlighter-rouge">year</code>) in recipe reviews (<code class="language-plaintext highlighter-rouge">review</code> count) and average ratings (<code class="language-plaintext highlighter-rouge">avg_rating</code>):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">year</th>
+      <th style="text-align: right">avg_rating</th>
+      <th style="text-align: right">review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">2008</td>
+      <td style="text-align: right">4.62743</td>
+      <td style="text-align: right">31593</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2009</td>
+      <td style="text-align: right">4.67466</td>
+      <td style="text-align: right">48420</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2010</td>
+      <td style="text-align: right">4.70223</td>
+      <td style="text-align: right">36970</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2011</td>
+      <td style="text-align: right">4.70723</td>
+      <td style="text-align: right">29187</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2012</td>
+      <td style="text-align: right">4.73037</td>
+      <td style="text-align: right">23827</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2013</td>
+      <td style="text-align: right">4.70944</td>
+      <td style="text-align: right">21849</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2014</td>
+      <td style="text-align: right">4.68466</td>
+      <td style="text-align: right">12580</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2015</td>
+      <td style="text-align: right">4.6112</td>
+      <td style="text-align: right">8206</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2016</td>
+      <td style="text-align: right">4.59224</td>
+      <td style="text-align: right">5999</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2017</td>
+      <td style="text-align: right">4.59481</td>
+      <td style="text-align: right">8825</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2018</td>
+      <td style="text-align: right">4.59397</td>
+      <td style="text-align: right">6915</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The pivot table summarizes <strong>yearly trends in both average recipe ratings and total review counts</strong>, providing a broader view of how user engagement and user perceptions have evolved ofer time. By tracking these metrics from year to year, I can identify periods of <strong>increased actiivty or shifting user preferences</strong> - which helps contextualize my main question about the relationship between <strong>review count</strong> and <strong>average rating</strong>. For example,a rise in review volume without a corresponding increase in average rating could suggest that more reviews don’t always translate to higher recipe approval.</p>
+
+<h3 id="imputation">Imputation</h3>
+
+<p>Only the missing values in the <code class="language-plaintext highlighter-rouge">rating</code> column needed to be imputed with a value of <code class="language-plaintext highlighter-rouge">Na.N</code> because the <code class="language-plaintext highlighter-rouge">rating</code> column was the only column from the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> file that contained missing values.</p>
 
 <h2 id="framing-a-prediction-problem">Framing a Prediction Problem</h2>
 
@@ -176,9 +482,17 @@ This step allowed for temporal analyses - like examining whether newer recipes t
 
 <h2 id="final-model">Final Model</h2>
 
-
       </section>
+    </div>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">What Do We Think of the Recipes? maintained by <a href="https://github.com/tawseef-rahman">tawseef-rahman</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
     </div>
   </body>
 </html>
