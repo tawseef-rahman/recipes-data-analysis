@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Welcome to my website… | [“What Do We Think of the Recipes?”]</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Welcome to my website…" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="[“By Tawseef Rahman (tawseefr@umich.edu)”]" />
+<meta property="og:description" content="[“By Tawseef Rahman (tawseefr@umich.edu)”]" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="[“What Do We Think of the Recipes?”]" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Welcome to my website…" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"[“By Tawseef Rahman (tawseefr@umich.edu)”]","headline":"Welcome to my website…","name":"[“What Do We Think of the Recipes?”]","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=5be118b332c408331add7439142fc61635505605">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <ul>
+            <li class="fork"><a href="https://github.com/tawseef-rahman/recipes-data-analysis">View On GitHub</a></li>
+            
+          </ul>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>What Do We Think of the Recipes?</h1>
+          <p>By Tawseef Rahman (tawseefr@umich.edu)</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/tawseef-rahman">tawseef-rahman</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+        </div>
+
+        <h1 id="welcome-to-my-website">Welcome to my website…</h1>
+
+<h2 id="for-the-eecs-398-final-project">for the EECS 398 Final Project!</h2>
+
+<h3 id="in-this-project-i-take-a-look-at-a-recipes-dataset-i-will">In this project, I take a look at a recipes dataset. I will…</h3>
+
+<ul>
+  <li>propose a research question</li>
+  <li>clean the dataset</li>
+  <li>display plots of univariate analysis</li>
+  <li>display plots of bivariate analysis</li>
+  <li>propose a prediction problem</li>
+  <li>train a baseline model</li>
+  <li>tune my baseline model to create a final model.</li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<h3 id="introduction-and-question-identification">Introduction and Question Identification</h3>
+
+<h4 id="question-and-reasoning">Question and Reasoning</h4>
+
+<p>The question that I am investigating in my project is:</p>
+
+<blockquote>
+  <p>Do recipes with more reviews (<code class="language-plaintext highlighter-rouge">review</code> count) have a higher average rating (<code class="language-plaintext highlighter-rouge">avg_rating</code>)?</p>
+</blockquote>
+
+<p>Understanding this relationshp could help users make more informed decisions when selecting recipes. If there is a strong correlation between the number of reviews and the average rating, it may suggest that popular recipes tend to be better received - or that crowd consensus leads to more accurate ratings over time. This insight could also benefit food bloggers, content creators, and developers of food recommendation systems.</p>
+
+<h4 id="about-the-dataset">About the Dataset</h4>
+
+<p>The dataset I’m using contains information on <strong>234,429</strong> recipes and their reviews, compiled into a single DataFrame named <code class="language-plaintext highlighter-rouge">merged_recipes_df</code>. It includes a wide range of features related to recipe content, nutrition, user information, and review data.</p>
+
+<p>The dataset contains the following columns:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">name</code> (string): The name of a recipe</li>
+  <li><code class="language-plaintext highlighter-rouge">id</code> (int): The ID number corresponding to a recipe</li>
+  <li><code class="language-plaintext highlighter-rouge">minutes</code> (int): The length of time (in minutes) it takes to cook the recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">contributor_id</code> (int): The ID number for the author of the recipe post.</li>
+  <li><code class="language-plaintext highlighter-rouge">submitted</code> (YYYY-MM-DD): The date when a recipe post was published.</li>
+  <li><code class="language-plaintext highlighter-rouge">tags</code> (list of strings): Relevant tags related to the recipe post.</li>
+  <li><code class="language-plaintext highlighter-rouge">n_steps</code> (int): The number of steps in the recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">steps</code> (list of strings): The steps used to cook the recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code> (string): A description of the recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">ingredients</code> (list of strings): All the ingredients for the recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">n_ingredients</code> (int): The number of ingredients for a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">calories</code> (int): The number of calories for a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">total_fat_PDV</code> (float): The percentage of daily value of total fat in a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">sugar_PDV</code> (float): The percentage of daily value of sugar in a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">sodium_PDV</code> (float): The percentage of daily value of sodium in a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">protein_PDV</code> (float): The percentage of daily value of protein in a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">saturated_fat_PDV</code> (float): The percentage of daily value of saturated fat in a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">carbohydrates_PDV</code> (float): The percentage of daily value of carbohydrates in a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">user_id</code> (int): The ID number for the author of the review poster.</li>
+  <li><code class="language-plaintext highlighter-rouge">recipe_id</code> (int): The ID number for the recipe for the corresponding review post.</li>
+  <li><code class="language-plaintext highlighter-rouge">date</code> (YYYY-MM-DD): The date of the review post.</li>
+  <li><code class="language-plaintext highlighter-rouge">rating</code> (float): The rating of a review</li>
+  <li><code class="language-plaintext highlighter-rouge">review</code> (string): The actual review</li>
+  <li><code class="language-plaintext highlighter-rouge">avg_rating</code> (float): The average value of ratings for a recipe.</li>
+  <li><code class="language-plaintext highlighter-rouge">year</code> (int): The year a recipe post was published.</li>
+</ul>
+
+<h2 id="data-cleaning-and-exploratory-data-analysis">Data Cleaning and Exploratory Data Analysis</h2>
+
+<h2 id="framing-a-prediction-problem">Framing a Prediction Problem</h2>
+
+<h2 id="baseline-model">Baseline Model</h2>
+
+<h2 id="final-model">Final Model</h2>
+
+
+      </section>
+
+    </div>
+  </body>
+</html>
