@@ -145,6 +145,13 @@ Only the missing values in the `rating` column needed to be imputed with a value
 
 ## Framing a Prediction Problem
 
+### Problem Identification
+
+The goal of my prediction task is to **predict the average rating** (`avg_rating`) that a recipe receives based on various features such as number of reviews, ingredients, nutritional values, and more. Because `avg_rating` is a **continuous numerical variable**, this is a **regression problem**.
+
+- Response Variable: The response variable I am predicting is `avg_rating`. I chose this variable because it reflects how positively a recipe is received by users, and predicting it can help identify what kinds of recipes are mosr likely to be rated highly.
+- Evaluation Metric: I am using the **coefficient of determination (R^2)** to evaluate my models' performance. The R^2 value measures the proportion of variance in the response variable that can be explained by the features used in the model. I chose R^2 over other regression metrics (like MAE or RMSE) becauase it provides an interpretable measure of **how well the model captures the variability in recipe ratings**, which is especially useful when comparing different models or feature sets.
+
 ## Baseline Model
 
 ## Final Model

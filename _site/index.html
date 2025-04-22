@@ -478,6 +478,15 @@ This step allowed for temporal analyses - like examining whether newer recipes t
 
 <h2 id="framing-a-prediction-problem">Framing a Prediction Problem</h2>
 
+<h3 id="problem-identification">Problem Identification</h3>
+
+<p>The goal of my prediction task is to <strong>predict the average rating</strong> (<code class="language-plaintext highlighter-rouge">avg_rating</code>) that a recipe receives based on various features such as number of reviews, ingredients, nutritional values, and more. Because <code class="language-plaintext highlighter-rouge">avg_rating</code> is a <strong>continuous numerical variable</strong>, this is a <strong>regression problem</strong>.</p>
+
+<ul>
+  <li>Response Variable: The response variable I am predicting is <code class="language-plaintext highlighter-rouge">avg_rating</code>. I chose this variable because it reflects how positively a recipe is received by users, and predicting it can help identify what kinds of recipes are mosr likely to be rated highly.</li>
+  <li>Evaluation Metric: I am using the <strong>coefficient of determination (R^2)</strong> to evaluate my models’ performance. The R^2 value measures the proportion of variance in the response variable that can be explained by the features used in the model. I chose R^2 over other regression metrics (like MAE or RMSE) becauase it provides an interpretable measure of <strong>how well the model captures the variability in recipe ratings</strong>, which is especially useful when comparing different models or feature sets.</li>
+</ul>
+
 <h2 id="baseline-model">Baseline Model</h2>
 
 <h2 id="final-model">Final Model</h2>
