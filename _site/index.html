@@ -58,7 +58,7 @@
       <section id="main_content" class="inner">
         <h1 id="welcome-to-my-website">Welcome to my website…</h1>
 
-<h2 id="for-the-eecs-398-final-project">for the EECS 398 Final Project!</h2>
+<h2 id="for-my-eecs-398-final-project">for my EECS 398 Final Project!</h2>
 
 <h3 id="in-this-project-i-take-a-look-at-a-recipes-dataset-i-will">In this project, I take a look at a recipes dataset. I will…</h3>
 
@@ -69,7 +69,7 @@
   <li>display plots of bivariate analysis</li>
   <li>propose a prediction problem</li>
   <li>train a baseline model</li>
-  <li>tune my baseline model to create a final model.</li>
+  <li>tune my baseline model to create a final model</li>
 </ul>
 
 <h2 id="introduction">Introduction</h2>
@@ -84,7 +84,7 @@
   <p>Do recipes with more reviews (<code class="language-plaintext highlighter-rouge">review</code> count) have a higher average rating (<code class="language-plaintext highlighter-rouge">avg_rating</code>)?</p>
 </blockquote>
 
-<p>Understanding this relationshp could help users make more informed decisions when selecting recipes. If there is a strong correlation between the number of reviews and the average rating, it may suggest that popular recipes tend to be better received - or that crowd consensus leads to more accurate ratings over time. This insight could also benefit food bloggers, content creators, and developers of food recommendation systems.</p>
+<p>Understanding this relationship could help users make more informed decisions when selecting recipes. If there is a strong correlation between the number of reviews and the average rating, it may suggest that popular recipes tend to be better received - or that crowd consensus leads to more accurate ratings over time. This insight could also benefit food bloggers, content creators, and developers of food recommendation systems.</p>
 
 <h4 id="about-the-dataset">About the Dataset</h4>
 
@@ -138,16 +138,16 @@ In <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code>, th
  I then expanded this list into individual nutrition columns: <code class="language-plaintext highlighter-rouge">calories</code>, <code class="language-plaintext highlighter-rouge">total_fat_PDV</code>, <code class="language-plaintext highlighter-rouge">sugar_PDV</code>, <code class="language-plaintext highlighter-rouge">sodium_PDV</code>, <code class="language-plaintext highlighter-rouge">protein_PDV</code>, <code class="language-plaintext highlighter-rouge">saturated_fat_PDV</code>, and <code class="language-plaintext highlighter-rouge">carbohydrates_PDV</code>.<br />
  This step enabled me to treat nutritional data as structured numerical values, making it possible to include them in future quantitative analyses or visualizations.</p>
   </li>
-  <li>Merging Recipe and Interaction Data
+  <li>Merging Recipe and Interaction Data<br />
 I then joined the two datasets using a <strong>left join</strong> on <code class="language-plaintext highlighter-rouge">id</code> from the <code class="language-plaintext highlighter-rouge">RAW_recipes.csv</code> dataset and <code class="language-plaintext highlighter-rouge">recipe_id</code> from the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset. This preserved all recipe entries, even those without user interactions.<br />
 This step connected user-generated ratings and reviews to specific recipes, allowing me to measure popularity (<code class="language-plaintext highlighter-rouge">review</code> count) and perceived quality (<code class="language-plaintext highlighter-rouge">avg_rating</code>) for each recipe.</li>
-  <li>Handling Invalid Ratings
+  <li>Handling Invalid Ratings<br />
 Some ratings in the dataset had a value of <code class="language-plaintext highlighter-rouge">0</code>, which is not a valid rating on a typical 1-5 scale. These entries were likely due to user error or placeholder values; I replaced the <code class="language-plaintext highlighter-rouge">0</code> values with <code class="language-plaintext highlighter-rouge">NaN</code> to prevent skewing the results.<br />
 This step ensured that the average rating calculations were accurate and not artificially deflated by invalid scores.</li>
-  <li>Calculating Average Rating Per Recipe
+  <li>Calculating Average Rating Per Recipe<br />
 I then calculated the mean rating for each recipe using the cleaned ratings and merged this value back into the main dataset as a new column, <code class="language-plaintext highlighter-rouge">avg_rating</code>.<br />
 The <code class="language-plaintext highlighter-rouge">avg_rating</code> column is central to my project question. By aggregating this value for each recipe, I can compare it meaningfully to the number of reviews it received.</li>
-  <li>Extracting the Year of Submission
+  <li>Extracting the Year of Submission<br />
 The <code class="language-plaintext highlighter-rouge">date</code> column in the interactions dataset records the timestamp of each interaction. I converted the date into a <code class="language-plaintext highlighter-rouge">year</code> column to make it easier for me to analyze trends over time.<br />
 This step allowed for temporal analyses - like examining whether newer recipes tend to receive higher ratings or more reviews.</li>
 </ol>
@@ -385,20 +385,24 @@ This step allowed for temporal analyses - like examining whether newer recipes t
 
 <p>The histogram shows that the distribution of average recipe ratings is <strong>left-skewed</strong>, with most recipes receiving high ratings. However, there is a noticable drop between the number of recipes with an <strong>average rating of 4.5</strong> and those with a <strong>perfect 5.0</strong>, suggesting that while many recipes are well-received, far fewer consistently earn top marks.</p>
 
+<iframe src="assets/fig1.html" width="800" height="600" frameborder="0"></iframe>
 <h4 id="plotly-plot-2-histogram-that-displays-the-distribution-of-the-number-of-steps-n_steps-for-recipes"><code class="language-plaintext highlighter-rouge">plotly</code> plot 2: <strong>Histogram</strong> that displays the distribution of the number of steps (<code class="language-plaintext highlighter-rouge">n_steps</code>) for recipes:</h4>
 
 <p>The histogram of recipe steps is <strong>right-skewed</strong>, indicating that while some recipes are quite complex, the majority involve a manageable <strong>5 to 10 steps</strong>. This suggests that most users tend to submit relatively simple recipes - which may attract more reviews and higher ratings due to their accessibility, a factor worth considering when exploring the relationship between review count and average rating.</p>
 
+<iframe src="assets/fig2.html" width="800" height="600" frameborder="0"></iframe>
 <h3 id="bivariate-analysis">Bivariate Analysis</h3>
 
 <h4 id="plotly-plot-3-scatter-plot-that-displays-the-relationship-between-the-number-of-reviews-review-count-and-average-rating-avg_rating"><code class="language-plaintext highlighter-rouge">plotly</code> plot 3: <strong>Scatter plot</strong> that displays the relationship between the number of reviews (<code class="language-plaintext highlighter-rouge">review</code> count) and average rating (<code class="language-plaintext highlighter-rouge">avg_rating</code>)</h4>
 
 <p>The scatter plot shows that most recipes cluster around <strong>20 to 40 reviews</strong> with <strong>average ratings between 4 and 5</strong>. While this suggests that popular recipes tend to be highly rated, the relatively flat trend line indicates <strong>no strong linear relationship</strong> between review count and average rating - implying that simply having more reviews doesn’t necessarily mean a recipe is rated higher.</p>
 
+<iframe src="assets/fig3.html" width="800" height="600" frameborder="0"></iframe>
 <h4 id="plotly-plot-4-bar-chart-that-displays-the-distribution-of-the-average-percentage-of-daily-value-in-sugar-sugar_pdv-for-recipes-at-or-below-2000-calories-in-recipes-by-year-year"><code class="language-plaintext highlighter-rouge">plotly</code> plot 4: <strong>Bar chart</strong> that displays the distribution of the average percentage of daily value in sugar (<code class="language-plaintext highlighter-rouge">sugar_PDV</code>) for recipes at or below 2,000 calories in recipes by year (<code class="language-plaintext highlighter-rouge">year</code>)</h4>
 
 <p>The bar chart reveals that the <strong>average sugar percentage of daily value</strong> in recipes has remained relatively stable since 2008, but shows a noticable <strong>increase beginning around 2015</strong>, with peaks in <strong>2015 and 2018</strong>, which suggests that in recent years, users may be submitted <strong>sweeter or less health-conscious recipes</strong>. To ensure a more accurate representation, this analysis includes only recipes with <strong>2,000 calories or fewer</strong>, as those above that threshold contained <strong>extreme outliers in sugar content</strong> that skewed the data.</p>
 
+<iframe src="assets/fig4.html" width="800" height="600" frameborder="0"></iframe>
 <h3 id="interesting-aggregates">Interesting Aggregates</h3>
 
 <p>Here’s a pivot table that summarizes the yearly trends (<code class="language-plaintext highlighter-rouge">year</code>) in recipe reviews (<code class="language-plaintext highlighter-rouge">review</code> count) and average ratings (<code class="language-plaintext highlighter-rouge">avg_rating</code>):</p>

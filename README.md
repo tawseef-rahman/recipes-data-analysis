@@ -1,6 +1,6 @@
 # Welcome to my website...
 
-## for the EECS 398 Final Project!
+## for my EECS 398 Final Project!
 
 ### In this project, I take a look at a recipes dataset. I will...
 
@@ -10,7 +10,7 @@
 - display plots of bivariate analysis
 - propose a prediction problem
 - train a baseline model
-- tune my baseline model to create a final model.
+- tune my baseline model to create a final model
 
 ## Introduction
 
@@ -22,7 +22,7 @@ The question that I am investigating in my project is:
 
 > Do recipes with more reviews (`review` count) have a higher average rating (`avg_rating`)?
 
-Understanding this relationshp could help users make more informed decisions when selecting recipes. If there is a strong correlation between the number of reviews and the average rating, it may suggest that popular recipes tend to be better received - or that crowd consensus leads to more accurate ratings over time. This insight could also benefit food bloggers, content creators, and developers of food recommendation systems.
+Understanding this relationship could help users make more informed decisions when selecting recipes. If there is a strong correlation between the number of reviews and the average rating, it may suggest that popular recipes tend to be better received - or that crowd consensus leads to more accurate ratings over time. This insight could also benefit food bloggers, content creators, and developers of food recommendation systems.
 
 #### About the Dataset
 
@@ -72,16 +72,16 @@ Before analyzing the relationship between review count and average rating, it wa
     I then expanded this list into individual nutrition columns: `calories`, `total_fat_PDV`, `sugar_PDV`, `sodium_PDV`, `protein_PDV`, `saturated_fat_PDV`, and `carbohydrates_PDV`.  
     This step enabled me to treat nutritional data as structured numerical values, making it possible to include them in future quantitative analyses or visualizations.
 
-3. Merging Recipe and Interaction Data
+3. Merging Recipe and Interaction Data  
    I then joined the two datasets using a **left join** on `id` from the `RAW_recipes.csv` dataset and `recipe_id` from the `RAW_interactions.csv` dataset. This preserved all recipe entries, even those without user interactions.  
    This step connected user-generated ratings and reviews to specific recipes, allowing me to measure popularity (`review` count) and perceived quality (`avg_rating`) for each recipe.
-4. Handling Invalid Ratings
+4. Handling Invalid Ratings  
    Some ratings in the dataset had a value of `0`, which is not a valid rating on a typical 1-5 scale. These entries were likely due to user error or placeholder values; I replaced the `0` values with `NaN` to prevent skewing the results.  
    This step ensured that the average rating calculations were accurate and not artificially deflated by invalid scores.
-5. Calculating Average Rating Per Recipe
+5. Calculating Average Rating Per Recipe  
    I then calculated the mean rating for each recipe using the cleaned ratings and merged this value back into the main dataset as a new column, `avg_rating`.  
    The `avg_rating` column is central to my project question. By aggregating this value for each recipe, I can compare it meaningfully to the number of reviews it received.
-6. Extracting the Year of Submission
+6. Extracting the Year of Submission  
    The `date` column in the interactions dataset records the timestamp of each interaction. I converted the date into a `year` column to make it easier for me to analyze trends over time.  
    This step allowed for temporal analyses - like examining whether newer recipes tend to receive higher ratings or more reviews.
 
@@ -105,20 +105,44 @@ Here's the head of the cleaned `merged_recipes_df` DataFrame:
 
 The histogram shows that the distribution of average recipe ratings is **left-skewed**, with most recipes receiving high ratings. However, there is a noticable drop between the number of recipes with an **average rating of 4.5** and those with a **perfect 5.0**, suggesting that while many recipes are well-received, far fewer consistently earn top marks.
 
+<iframe
+src="assets/fig1.html"
+width="800"
+height="600"
+frameborder="0"
+></iframe>
 #### `plotly` plot 2: **Histogram** that displays the distribution of the number of steps (`n_steps`) for recipes:
 
 The histogram of recipe steps is **right-skewed**, indicating that while some recipes are quite complex, the majority involve a manageable **5 to 10 steps**. This suggests that most users tend to submit relatively simple recipes - which may attract more reviews and higher ratings due to their accessibility, a factor worth considering when exploring the relationship between review count and average rating.
 
+<iframe
+src="assets/fig2.html"
+width="800"
+height="600"
+frameborder="0"
+></iframe>
 ### Bivariate Analysis
 
 #### `plotly` plot 3: **Scatter plot** that displays the relationship between the number of reviews (`review` count) and average rating (`avg_rating`)
 
 The scatter plot shows that most recipes cluster around **20 to 40 reviews** with **average ratings between 4 and 5**. While this suggests that popular recipes tend to be highly rated, the relatively flat trend line indicates **no strong linear relationship** between review count and average rating - implying that simply having more reviews doesn't necessarily mean a recipe is rated higher.
 
+<iframe
+src="assets/fig3.html"
+width="800"
+height="600"
+frameborder="0"
+></iframe>
 #### `plotly` plot 4: **Bar chart** that displays the distribution of the average percentage of daily value in sugar (`sugar_PDV`) for recipes at or below 2,000 calories in recipes by year (`year`)
 
 The bar chart reveals that the **average sugar percentage of daily value** in recipes has remained relatively stable since 2008, but shows a noticable **increase beginning around 2015**, with peaks in **2015 and 2018**, which suggests that in recent years, users may be submitted **sweeter or less health-conscious recipes**. To ensure a more accurate representation, this analysis includes only recipes with **2,000 calories or fewer**, as those above that threshold contained **extreme outliers in sugar content** that skewed the data.
 
+<iframe
+src="assets/fig4.html"
+width="800"
+height="600"
+frameborder="0"
+></iframe>
 ### Interesting Aggregates
 
 Here's a pivot table that summarizes the yearly trends (`year`) in recipe reviews (`review` count) and average ratings (`avg_rating`):
