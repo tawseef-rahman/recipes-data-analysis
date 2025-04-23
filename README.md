@@ -166,3 +166,22 @@ After splitting the data into training and testing sets (80% train, 20% test), I
 The R^2 score value for the baseline model is 0.0003; this value is extremely low - close to zero - which means that the model explains **virtually none of the variance** in average recipe ratings. This suggests that simply knowing how many reviews a recipe has and its calorie content is **not sufficient** to accurately predict its rating. Therefore, I do **not** consider this baseline model to be good. This model serves primarily as a starting point for comparison as I explore more complex models and richer sets of features.
 
 ## Final Model
+
+For my final model, I introduced two additional features: `protein_PDV` (percentage of daily value for protein) and `n_ingredients` (number of ingredients in a recipe). I chose these features because they provide valuable nutritional and complexity-related information about each recipe. Recipes that are high in protein or require more ingredients may influence user satisfaction and perceived quality, which in turn could affect their average ratings. Including these variables helps capture underlying patterns in the data that go beyond basic calorie cound and review frequency, which were used in the baseline model.
+
+To model the prediction task, I used a **Random Forest Regressor**, a non-linear ensemble method that is well-suited for capturing complex relationships in the data. This choice was motivated by the fact that user ratings can be influenced by a combination of interactions between features that a linear model might not be able to capture.
+
+I applied preprocessing using a `ColumnTransformer`:
+
+- I **standardized** numeric features (`calories`, `protein_PDV`, and `n_ingredients`) using `StandardScaler`.
+- I **normalized** the highly skewed `review_count` using `QuantileTransformer` with a normal output distribution.
+
+I then used **GridSearchCV** to tune the hyperparameters of the Random Forest model. The best hyperparameters from the grid search were:
+
+- `n_estimators`: 100
+- `max_depth`: None
+- `min_sample_split`: 2
+
+I selected the best model by evaluating its performance using 5-fold cross-validation, with the **coefficient of determination (R^2)** as the evaluation metric. The R^2 is an appropriate metric for regression tasks because it quantifies how much of the variance in the response variable is explained by the model.
+
+The final model achieved an **R^2 score of 0.4502**, a substantial improvement over the **baseline model's R^2 score of 0.0003**. This suggests that incorporating domain knowledge through new features and using a more expressive model significantly improved the model's ability to predict average recipe ratings.

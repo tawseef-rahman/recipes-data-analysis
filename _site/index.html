@@ -504,6 +504,29 @@ This step allowed for temporal analyses - like examining whether newer recipes t
 
 <h2 id="final-model">Final Model</h2>
 
+<p>For my final model, I introduced two additional features: <code class="language-plaintext highlighter-rouge">protein_PDV</code> (percentage of daily value for protein) and <code class="language-plaintext highlighter-rouge">n_ingredients</code> (number of ingredients in a recipe). I chose these features because they provide valuable nutritional and complexity-related information about each recipe. Recipes that are high in protein or require more ingredients may influence user satisfaction and perceived quality, which in turn could affect their average ratings. Including these variables helps capture underlying patterns in the data that go beyond basic calorie cound and review frequency, which were used in the baseline model.</p>
+
+<p>To model the prediction task, I used a <strong>Random Forest Regressor</strong>, a non-linear ensemble method that is well-suited for capturing complex relationships in the data. This choice was motivated by the fact that user ratings can be influenced by a combination of interactions between features that a linear model might not be able to capture.</p>
+
+<p>I applied preprocessing using a <code class="language-plaintext highlighter-rouge">ColumnTransformer</code>:</p>
+
+<ul>
+  <li>I <strong>standardized</strong> numeric features (<code class="language-plaintext highlighter-rouge">calories</code>, <code class="language-plaintext highlighter-rouge">protein_PDV</code>, and <code class="language-plaintext highlighter-rouge">n_ingredients</code>) using <code class="language-plaintext highlighter-rouge">StandardScaler</code>.</li>
+  <li>I <strong>normalized</strong> the highly skewed <code class="language-plaintext highlighter-rouge">review_count</code> using <code class="language-plaintext highlighter-rouge">QuantileTransformer</code> with a normal output distribution.</li>
+</ul>
+
+<p>I then used <strong>GridSearchCV</strong> to tune the hyperparameters of the Random Forest model. The best hyperparameters from the grid search were:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">n_estimators</code>: 100</li>
+  <li><code class="language-plaintext highlighter-rouge">max_depth</code>: None</li>
+  <li><code class="language-plaintext highlighter-rouge">min_sample_split</code>: 2</li>
+</ul>
+
+<p>I selected the best model by evaluating its performance using 5-fold cross-validation, with the <strong>coefficient of determination (R^2)</strong> as the evaluation metric. The R^2 is an appropriate metric for regression tasks because it quantifies how much of the variance in the response variable is explained by the model.</p>
+
+<p>The final model achieved an <strong>R^2 score of 0.4502</strong>, a substantial improvement over the <strong>baseline model’s R^2 score of 0.0003</strong>. This suggests that incorporating domain knowledge through new features and using a more expressive model significantly improved the model’s ability to predict average recipe ratings.</p>
+
       </section>
     </div>
 
