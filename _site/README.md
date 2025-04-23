@@ -154,4 +154,15 @@ The goal of my prediction task is to **predict the average rating** (`avg_rating
 
 ## Baseline Model
 
+For my baseline model, I used a **linear regression** approach to predict the `avg_rating` of a recipe based on two features:
+
+- `review_count`: the number of user-submitted reviews per recipe
+- `calories`: the total calorie content of the recipe
+
+Both features are **quantitative variables**. Because the model uses only numeric data, no encoding (such as one-hot encoding) was necessary. I standardized the feature values using a **StandardScaler** to ensure both variables contributed equally during model training.
+
+After splitting the data into training and testing sets (80% train, 20% test), I evaluated model performance using the **R^2 (coefficient of determination)** metric. This metric tells me how well the model explains variability in the response variable.
+
+The R^2 score value for the baseline model is 0.0003; this value is extremely low - close to zero - which means that the model explains **virtually none of the variance** in average recipe ratings. This suggests that simply knowing how many reviews a recipe has and its calorie content is **not sufficient** to accurately predict its rating. Therefore, I do **not** consider this baseline model to be good. This model serves primarily as a starting point for comparison as I explore more complex models and richer sets of features.
+
 ## Final Model

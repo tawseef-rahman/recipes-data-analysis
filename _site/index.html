@@ -489,6 +489,19 @@ This step allowed for temporal analyses - like examining whether newer recipes t
 
 <h2 id="baseline-model">Baseline Model</h2>
 
+<p>For my baseline model, I used a <strong>linear regression</strong> approach to predict the <code class="language-plaintext highlighter-rouge">avg_rating</code> of a recipe based on two features:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">review_count</code>: the number of user-submitted reviews per recipe</li>
+  <li><code class="language-plaintext highlighter-rouge">calories</code>: the total calorie content of the recipe</li>
+</ul>
+
+<p>Both features are <strong>quantitative variables</strong>. Because the model uses only numeric data, no encoding (such as one-hot encoding) was necessary. I standardized the feature values using a <strong>StandardScaler</strong> to ensure both variables contributed equally during model training.</p>
+
+<p>After splitting the data into training and testing sets (80% train, 20% test), I evaluated model performance using the <strong>R^2 (coefficient of determination)</strong> metric. This metric tells me how well the model explains variability in the response variable.</p>
+
+<p>The R^2 score value for the baseline model is 0.0003; this value is extremely low - close to zero - which means that the model explains <strong>virtually none of the variance</strong> in average recipe ratings. This suggests that simply knowing how many reviews a recipe has and its calorie content is <strong>not sufficient</strong> to accurately predict its rating. Therefore, I do <strong>not</strong> consider this baseline model to be good. This model serves primarily as a starting point for comparison as I explore more complex models and richer sets of features.</p>
+
 <h2 id="final-model">Final Model</h2>
 
       </section>
