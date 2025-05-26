@@ -2,7 +2,7 @@
 layout: spec
 ---
 
-# [What Do We Think of the Recipes?](https://github.com/tawseef-rahman/recipes-data-analysis)
+# What Do We Think of the Recipes?
 
 <br>
 <br>
