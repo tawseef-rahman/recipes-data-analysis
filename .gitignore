@@ -6,3 +6,6 @@ _site
 # Other Jekyll files
 .sass-cache
 .jekyll-metadata
+
+# Exclude .DS_Store file in GitHub repository
+.DS_Store
