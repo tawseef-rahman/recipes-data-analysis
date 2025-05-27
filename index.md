@@ -117,7 +117,9 @@ Here's the `head` of the cleaned `merged_recipes_df` DataFrame:
 
 ### Univariate Analysis
 
-#### `plotly` Plot 1: **Histogram**: Distribution of average ratings (`avg_rating`):
+#### `plotly` Plot 1
+
+**Histogram**: Distribution of average ratings (`avg_rating`):
 
 The histogram shows that the distribution of average recipe ratings is **left-skewed**, with most recipes receiving high ratings. However, there is a noticable drop between the number of recipes with an **average rating of 4.5** and those with a **perfect 5.0**, suggesting that while many recipes are well-received, far fewer consistently earn top marks.
 
@@ -128,7 +130,9 @@ height="600"
 frameborder="0"
 ></iframe>
 
-#### `plotly` Plot 2: **Histogram**: Distribution of the number of steps (`n_steps`):
+#### `plotly` Plot 2
+
+**Histogram**: Distribution of the number of steps (`n_steps`):
 
 The histogram of recipe steps is **right-skewed**, indicating that while some recipes are quite complex, the majority involve a manageable **5 to 10 steps**. The aforementioned trend suggests that most users tend to submit relatively simple recipes - which may attract more reviews and higher ratings due to their accessibility, a factor worth considering when exploring the relationship between review count and average rating.
 
@@ -141,7 +145,9 @@ frameborder="0"
 
 ### Bivariate Analysis
 
-#### `plotly` Plot 3: **Scatter Plot**: Relationship between the number of reviews (`review` count) and average rating (`avg_rating`)
+#### `plotly` Plot 3
+
+**Scatter Plot**: Relationship between the number of reviews (`review` count) and average rating (`avg_rating`)
 
 The scatter plot shows that most recipes cluster around **20 to 40 reviews** with **average ratings between 4 and 5**. While this aforementioned trend suggests that popular recipes tend to be highly rated, the relatively flat trend line indicates **no strong linear relationship** between review count and average rating - implying that simply having more reviews does not necessarily mean a recipe is rated higher.
 
@@ -152,7 +158,9 @@ height="600"
 frameborder="0"
 ></iframe>
 
-#### `plotly` Plot 4: **Bar Chart**: Distribution of the average percentage of daily value in sugar (`sugar_PDV`) for recipes at or below 2,000 calories in recipes by year (`year`)
+#### `plotly` Plot 4
+
+**Bar Chart**: Distribution of the average percentage of daily value in sugar (`sugar_PDV`) for recipes at or below 2,000 calories in recipes by year (`year`)
 
 The bar chart reveals that the **average sugar percentage of daily value** in recipes has remained relatively stable since 2008, but shows a noticable **increase beginning around 2015**, with peaks in **2015 and 2018**. The aforementioned trend suggests that in recent years, users may have submitted **sweeter or less health-conscious recipes**. To ensure a more accurate representation of recipes, this analysis only includes recipes with **2,000 calories or fewer** as those above that threshold contained **extreme outliers in sugar content** that skewed the data.
 
