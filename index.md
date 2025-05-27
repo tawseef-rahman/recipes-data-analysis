@@ -189,7 +189,7 @@ The goal of my prediction task is to **predict the average rating** (`avg_rating
   <br>
   The R<sup>2</sup> value measures the proportion of variance in the response variable that can be explained by the features used in the model. I chose R<sup>2</sup> over other regression metrics (like Mean Absolute Error (MAE) or Root Mean Square Error (RMSE)) because it provides an interpretable measure of **how well the model captures the variability in recipe ratings**, which is especially useful when comparing different models or feature sets.
 
-### Baseline Model
+## Baseline Model
 
 For my baseline model, I used a **linear regression** approach to predict the `avg_rating` of a recipe based on two features:
 
@@ -202,7 +202,7 @@ After splitting the data into training and testing sets (80% train, 20% test), I
 
 The R<sup>2</sup> score value for the baseline model is **0.0003**; this value is extremely low - close to zero - which means that the model explains **virtually none of the variance** in average recipe ratings. The aforementioned interpretation of the R<sup>2</sup> score value for the baseline model suggests that simply knowing how many reviews a recipe has and its calorie content is **not sufficient** to accurately predict the recipe's rating. Therefore, I do **not** consider this baseline model to be good. This model serves primarily as a starting point for comparison as I explore more complex models and richer sets of features.
 
-### Final Model
+## Final Model
 
 For my final model, I introduced two additional features: `protein_PDV` (percentage of daily value of protein) and `n_ingredients` (number of ingredients) in a recipe. I chose these features because they both provide valuable nutritional and complexity-related information about each recipe. Recipes that are high in protein or require more ingredients may influence user satisfaction and perceived quality, which in turn could affect their average ratings. Including these variables helps capture underlying patterns in the data that go beyond the number of calories and review frequency for a recipe, which were used in the baseline model.
 
