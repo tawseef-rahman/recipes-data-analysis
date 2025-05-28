@@ -48,11 +48,9 @@
         <div id="primer-spec-plugin-main-content">
             
 
-            <h1 id="what-do-we-think-of-the-recipes"><a href="https://github.com/tawseef-rahman/recipes-data-analysis">What Do We Think of the Recipes?</a></h1>
+            <h1 id="what-do-we-think-of-the-recipes">What Do We Think of the Recipes?</h1>
 
-<p><br />
-<br />
-By
+<p>By
 <br />
 <a href="https://www.tawseefrahman.com">Tawseef Rahman</a>
 <br />
@@ -392,13 +390,17 @@ b. Step 6a. allowed for temporal analyses - like examining whether newer recipes
 
 <h3 id="univariate-analysis">Univariate Analysis</h3>
 
-<h4 id="plotly-plot-1-histogram-distribution-of-average-ratings-avg_rating"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 1: <strong>Histogram</strong>: Distribution of average ratings (<code class="language-plaintext highlighter-rouge">avg_rating</code>):</h4>
+<h4 id="plotly-plot-1-histogram"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 1: Histogram</h4>
+
+<p>Distribution of average ratings (<code class="language-plaintext highlighter-rouge">avg_rating</code>):</p>
 
 <p>The histogram shows that the distribution of average recipe ratings is <strong>left-skewed</strong>, with most recipes receiving high ratings. However, there is a noticable drop between the number of recipes with an <strong>average rating of 4.5</strong> and those with a <strong>perfect 5.0</strong>, suggesting that while many recipes are well-received, far fewer consistently earn top marks.</p>
 
 <iframe src="assets/fig1.html" width="800" height="600" frameborder="0"></iframe>
 
-<h4 id="plotly-plot-2-histogram-distribution-of-the-number-of-steps-n_steps"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 2: <strong>Histogram</strong>: Distribution of the number of steps (<code class="language-plaintext highlighter-rouge">n_steps</code>):</h4>
+<h4 id="plotly-plot-2-histogram"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 2: Histogram</h4>
+
+<p>Distribution of the number of steps (<code class="language-plaintext highlighter-rouge">n_steps</code>):</p>
 
 <p>The histogram of recipe steps is <strong>right-skewed</strong>, indicating that while some recipes are quite complex, the majority involve a manageable <strong>5 to 10 steps</strong>. The aforementioned trend suggests that most users tend to submit relatively simple recipes - which may attract more reviews and higher ratings due to their accessibility, a factor worth considering when exploring the relationship between review count and average rating.</p>
 
@@ -406,13 +408,17 @@ b. Step 6a. allowed for temporal analyses - like examining whether newer recipes
 
 <h3 id="bivariate-analysis">Bivariate Analysis</h3>
 
-<h4 id="plotly-plot-3-scatter-plot-relationship-between-the-number-of-reviews-review-count-and-average-rating-avg_rating"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 3: <strong>Scatter Plot</strong>: Relationship between the number of reviews (<code class="language-plaintext highlighter-rouge">review</code> count) and average rating (<code class="language-plaintext highlighter-rouge">avg_rating</code>)</h4>
+<h4 id="plotly-plot-3-scatter-plot"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 3: Scatter Plot</h4>
+
+<p>Relationship between the number of reviews (<code class="language-plaintext highlighter-rouge">review</code> count) and average rating (<code class="language-plaintext highlighter-rouge">avg_rating</code>)</p>
 
 <p>The scatter plot shows that most recipes cluster around <strong>20 to 40 reviews</strong> with <strong>average ratings between 4 and 5</strong>. While this aforementioned trend suggests that popular recipes tend to be highly rated, the relatively flat trend line indicates <strong>no strong linear relationship</strong> between review count and average rating - implying that simply having more reviews does not necessarily mean a recipe is rated higher.</p>
 
 <iframe src="assets/fig3.html" width="800" height="600" frameborder="0"></iframe>
 
-<h4 id="plotly-plot-4-bar-chart-distribution-of-the-average-percentage-of-daily-value-in-sugar-sugar_pdv-for-recipes-at-or-below-2000-calories-in-recipes-by-year-year"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 4: <strong>Bar Chart</strong>: Distribution of the average percentage of daily value in sugar (<code class="language-plaintext highlighter-rouge">sugar_PDV</code>) for recipes at or below 2,000 calories in recipes by year (<code class="language-plaintext highlighter-rouge">year</code>)</h4>
+<h4 id="plotly-plot-4-bar-chart"><code class="language-plaintext highlighter-rouge">plotly</code> Plot 4: Bar Chart</h4>
+
+<p>Distribution of the average percentage of daily value in sugar (<code class="language-plaintext highlighter-rouge">sugar_PDV</code>) for recipes at or below 2,000 calories in recipes by year (<code class="language-plaintext highlighter-rouge">year</code>)</p>
 
 <p>The bar chart reveals that the <strong>average sugar percentage of daily value</strong> in recipes has remained relatively stable since 2008, but shows a noticable <strong>increase beginning around 2015</strong>, with peaks in <strong>2015 and 2018</strong>. The aforementioned trend suggests that in recent years, users may have submitted <strong>sweeter or less health-conscious recipes</strong>. To ensure a more accurate representation of recipes, this analysis only includes recipes with <strong>2,000 calories or fewer</strong> as those above that threshold contained <strong>extreme outliers in sugar content</strong> that skewed the data.</p>
 
@@ -514,7 +520,7 @@ The R<sup>2</sup> value measures the proportion of variance in the response vari
   </li>
 </ul>
 
-<h3 id="baseline-model">Baseline Model</h3>
+<h2 id="baseline-model">Baseline Model</h2>
 
 <p>For my baseline model, I used a <strong>linear regression</strong> approach to predict the <code class="language-plaintext highlighter-rouge">avg_rating</code> of a recipe based on two features:</p>
 
@@ -529,7 +535,7 @@ The R<sup>2</sup> value measures the proportion of variance in the response vari
 
 <p>The R<sup>2</sup> score value for the baseline model is <strong>0.0003</strong>; this value is extremely low - close to zero - which means that the model explains <strong>virtually none of the variance</strong> in average recipe ratings. The aforementioned interpretation of the R<sup>2</sup> score value for the baseline model suggests that simply knowing how many reviews a recipe has and its calorie content is <strong>not sufficient</strong> to accurately predict the recipe’s rating. Therefore, I do <strong>not</strong> consider this baseline model to be good. This model serves primarily as a starting point for comparison as I explore more complex models and richer sets of features.</p>
 
-<h3 id="final-model">Final Model</h3>
+<h2 id="final-model">Final Model</h2>
 
 <p>For my final model, I introduced two additional features: <code class="language-plaintext highlighter-rouge">protein_PDV</code> (percentage of daily value of protein) and <code class="language-plaintext highlighter-rouge">n_ingredients</code> (number of ingredients) in a recipe. I chose these features because they both provide valuable nutritional and complexity-related information about each recipe. Recipes that are high in protein or require more ingredients may influence user satisfaction and perceived quality, which in turn could affect their average ratings. Including these variables helps capture underlying patterns in the data that go beyond the number of calories and review frequency for a recipe, which were used in the baseline model.</p>
 

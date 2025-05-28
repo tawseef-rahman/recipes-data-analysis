@@ -4,8 +4,6 @@ layout: spec
 
 # What Do We Think of the Recipes?
 
-<br>
-<br>
 By
 <br>
 [Tawseef Rahman](https://www.tawseefrahman.com)
