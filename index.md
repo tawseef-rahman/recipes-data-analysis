@@ -2,7 +2,7 @@
 layout: spec
 ---
 
-# What Do We Think of the Recipes?
+# [What Do We Think of the Recipes?](https://github.com/tawseef-rahman/recipes-data-analysis)
 
 By
 <br>
@@ -40,31 +40,7 @@ The dataset I'm using contains information on **234,429** recipes and their revi
 
 The DataFrame `merged_recipes_df` contains the following columns:
 
-- `name` (string): The name of a recipe
-- `id` (int): The ID number corresponding to a recipe
-- `minutes` (int): The length of time (in minutes) it takes to cook the recipe
-- `contributor_id` (int): The ID number for the author of the recipe post
-- `submitted` (YYYY-MM-DD): The date when a recipe post was published
-- `tags` (list of strings): Relevant tags related to the recipe post
-- `n_steps` (int): The number of steps in the recipe
-- `steps` (list of strings): The steps used to cook the recipe
-- `description` (string): A description of the recipe
-- `ingredients` (list of strings): All the ingredients for the recipe
-- `n_ingredients` (int): The number of ingredients for a recipe
-- `calories` (int): The number of calories for a recipe
-- `total_fat_PDV` (float): The percentage of daily value of total fat in a recipe
-- `sugar_PDV` (float): The percentage of daily value of sugar in a recipe
-- `sodium_PDV` (float): The percentage of daily value of sodium in a recipe
-- `protein_PDV` (float): The percentage of daily value of protein in a recipe
-- `saturated_fat_PDV` (float): The percentage of daily value of saturated fat in a recipe
-- `carbohydrates_PDV` (float): The percentage of daily value of carbohydrates in a recipe
-- `user_id` (int): The ID number for the author of the review poster
-- `recipe_id` (int): The ID number for the recipe for the corresponding review post
-- `date` (YYYY-MM-DD): The date of the review post
-- `rating` (float): The rating (1, inclusive to 5, inclusive) of a review
-- `review` (string): The actual review
-- `avg_rating` (float): The average value of ratings for a recipe
-- `year` (int): The year a recipe post was published
+{% include merged_recipes_df-columns.md %}
 
 ## Data Cleaning and Exploratory Data Analysis
 

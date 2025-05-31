@@ -48,7 +48,7 @@
         <div id="primer-spec-plugin-main-content">
             
 
-            <h1 id="what-do-we-think-of-the-recipes">What Do We Think of the Recipes?</h1>
+            <h1 id="what-do-we-think-of-the-recipes"><a href="https://github.com/tawseef-rahman/recipes-data-analysis">What Do We Think of the Recipes?</a></h1>
 
 <p>By
 <br />
@@ -90,33 +90,142 @@
 
 <p>The DataFrame <code class="language-plaintext highlighter-rouge">merged_recipes_df</code> contains the following columns:</p>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">name</code> (string): The name of a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">id</code> (int): The ID number corresponding to a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">minutes</code> (int): The length of time (in minutes) it takes to cook the recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">contributor_id</code> (int): The ID number for the author of the recipe post</li>
-  <li><code class="language-plaintext highlighter-rouge">submitted</code> (YYYY-MM-DD): The date when a recipe post was published</li>
-  <li><code class="language-plaintext highlighter-rouge">tags</code> (list of strings): Relevant tags related to the recipe post</li>
-  <li><code class="language-plaintext highlighter-rouge">n_steps</code> (int): The number of steps in the recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">steps</code> (list of strings): The steps used to cook the recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">description</code> (string): A description of the recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">ingredients</code> (list of strings): All the ingredients for the recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">n_ingredients</code> (int): The number of ingredients for a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">calories</code> (int): The number of calories for a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">total_fat_PDV</code> (float): The percentage of daily value of total fat in a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">sugar_PDV</code> (float): The percentage of daily value of sugar in a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">sodium_PDV</code> (float): The percentage of daily value of sodium in a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">protein_PDV</code> (float): The percentage of daily value of protein in a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">saturated_fat_PDV</code> (float): The percentage of daily value of saturated fat in a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">carbohydrates_PDV</code> (float): The percentage of daily value of carbohydrates in a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">user_id</code> (int): The ID number for the author of the review poster</li>
-  <li><code class="language-plaintext highlighter-rouge">recipe_id</code> (int): The ID number for the recipe for the corresponding review post</li>
-  <li><code class="language-plaintext highlighter-rouge">date</code> (YYYY-MM-DD): The date of the review post</li>
-  <li><code class="language-plaintext highlighter-rouge">rating</code> (float): The rating (1, inclusive to 5, inclusive) of a review</li>
-  <li><code class="language-plaintext highlighter-rouge">review</code> (string): The actual review</li>
-  <li><code class="language-plaintext highlighter-rouge">avg_rating</code> (float): The average value of ratings for a recipe</li>
-  <li><code class="language-plaintext highlighter-rouge">year</code> (int): The year a recipe post was published</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Variable Name</th>
+      <th style="text-align: left">Variable Type</th>
+      <th style="text-align: left">Variable Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The name of the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The ID number corresponding to the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">minutes</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The length of time (in minutes) it takes to cook the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">contributor_id</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The ID number for the author of the recipe post</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">submitted</td>
+      <td style="text-align: left">YYYY-MM-DD</td>
+      <td style="text-align: left">The date when the recipe post was published</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tags</td>
+      <td style="text-align: left">list of strings</td>
+      <td style="text-align: left">Relevant tags related to the recipe post</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">n_steps</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The number of steps in the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">steps</td>
+      <td style="text-align: left">list of strings</td>
+      <td style="text-align: left">The steps used to cook the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The description of the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ingredients</td>
+      <td style="text-align: left">list of strings</td>
+      <td style="text-align: left">All the ingredients for the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">n_ingredients</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The number of ingredients for the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">calories</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The number of calories for the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">total_fat_PDV</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The percentage of daily value of total fat in the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sugar_PDV</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The percentage of daily value of sugar in the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sodium_PDV</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The percentage of daily value of sodium in the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">protein_PDV</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The percentage of daily value of protein in the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">saturated_fat_PDV</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The percentage of daily value of saturated fat in the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">carbohydrates_PDV</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The percentage of daily value of carbohydrates in the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user_id</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The ID number for the author of the review post</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">recipe_id</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The ID number for the recipe for the corresponding review post</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">date</td>
+      <td style="text-align: left">YYYY-MM-DD</td>
+      <td style="text-align: left">The date of the review post</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rating</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The rating (1, inclusive to 5, inclusive) of the review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">review</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The actual review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avg_rating</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">The average value of ratings for the recipe</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">year</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">The year the recipe post was published</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="data-cleaning-and-exploratory-data-analysis">Data Cleaning and Exploratory Data Analysis</h2>
 
