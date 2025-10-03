@@ -5,14 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>What Do We Think of the Recipes? | recipes-data-analysis</title>
 <meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="What Do We Think of the Recipes?" />
 <meta property="og:locale" content="en_US" />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="recipes-data-analysis" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="What Do We Think of the Recipes?" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","headline":"What Do We Think of the Recipes?","name":"recipes-data-analysis","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="preload" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" as="style" crossorigin="anonymous" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr">
         <link rel="stylesheet" href="https://eecs485staff.github.io/primer-spec/assets/v1.10/css/primer-spec-base.css">
@@ -33,7 +37,7 @@
                 sitemapEnabled: false,
                 sitemapUrls: [],
                 sitemapLabel: undefined,
-                sitemapSiteTitle: '',
+                sitemapSiteTitle: 'recipes-data-analysis',
                 useLegacyCodeBlocks: false,
                 defaultCodeblockVariant: "enhanced",
                 disableJokes: false
@@ -46,6 +50,8 @@
         <div id="primer-spec-app-container" onclick="return true;"></div>
 
         <div id="primer-spec-plugin-main-content">
+            
+            <h1 class="primer-spec-toc-ignore"><a href="http://localhost:4000/">recipes-data-analysis</a></h1>
             
 
             <h1 id="what-do-we-think-of-the-recipes"><a href="https://github.com/tawseef-rahman/recipes-data-analysis">What Do We Think of the Recipes?</a></h1>
@@ -78,9 +84,9 @@
 
 <p>The question that I am investigating in my project is:</p>
 
-<blockquote>
+<div class="primer-spec-callout info">
   <p>Do recipes with more reviews (<code class="language-plaintext highlighter-rouge">review</code> count) have a higher average rating (<code class="language-plaintext highlighter-rouge">avg_rating</code>)?</p>
-</blockquote>
+</div>
 
 <p>Understanding this relationship could help users make more informed decisions when selecting recipes. If there is a strong correlation between the number of reviews and the average rating, it may suggest that popular recipes tend to be better received - or that crowd consensus leads to more accurate ratings over time. This insight could also benefit food bloggers, content creators, and developers of food recommendation systems.</p>
 
@@ -101,7 +107,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">name</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">str</code></td>
       <td style="text-align: left">The name of the recipe</td>
     </tr>
     <tr>
@@ -126,27 +132,27 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">tags</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">string</code>s</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">str</code>s</td>
       <td style="text-align: left">Relevant tags related to the recipe post</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">n_steps</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">str</code></td>
       <td style="text-align: left">The number of steps in the recipe</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">steps</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">string</code>s</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">str</code>s</td>
       <td style="text-align: left">The steps used to cook the recipe</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">str</code></td>
       <td style="text-align: left">The description of the recipe</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ingredients</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">string</code>s</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">str</code>s</td>
       <td style="text-align: left">All the ingredients for the recipe</td>
     </tr>
     <tr>
@@ -211,7 +217,7 @@
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">review</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">str</code></td>
       <td style="text-align: left">The actual review</td>
     </tr>
     <tr>
@@ -262,7 +268,7 @@ b. Step 4a. ensured that the average rating calculations were accurate and not a
 <br />
 a. I then calculated the mean rating for each recipe using the cleaned ratings and merged this value back into the main dataset as a new column, <code class="language-plaintext highlighter-rouge">avg_rating</code>.
 <br />
-b. The <code class="language-plaintext highlighter-rouge">avg_rating</code> column is central to my project question. By aggregating this value for each recipe, I can copare it meaningfully to the number of reviews it received.</li>
+b. The <code class="language-plaintext highlighter-rouge">avg_rating</code> column is central to my project question. By aggregating this value for each recipe, I can compare it meaningfully to the number of reviews it received.</li>
   <li>Extracting the Year of Submission
 <br />
 a. The <code class="language-plaintext highlighter-rouge">date</code> column in the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset records the timestamp of each interaction. I converted the date into a <code class="language-plaintext highlighter-rouge">year</code> column to make it easier for me to analyze trends over time.
@@ -503,7 +509,7 @@ b. Step 6a. allowed for temporal analyses - like examining whether newer recipes
 
 <p>Distribution of average ratings (<code class="language-plaintext highlighter-rouge">avg_rating</code>):</p>
 
-<p>The histogram shows that the distribution of average recipe ratings is <strong>left-skewed</strong>, with most recipes receiving high ratings. However, there is a noticable drop between the number of recipes with an <strong>average rating of 4.5</strong> and those with a <strong>perfect 5.0</strong>, suggesting that while many recipes are well-received, far fewer consistently earn top marks.</p>
+<p>The histogram shows that the distribution of average recipe ratings is <strong>left-skewed</strong>, with most recipes receiving high ratings. However, there is a noticeable drop between the number of recipes with an <strong>average rating of 4.5</strong> and those with a <strong>perfect 5.0</strong>, suggesting that while many recipes are well-received, far fewer consistently earn top marks.</p>
 
 <iframe src="assets/fig1.html" width="800" height="600" frameborder="0"></iframe>
 
@@ -529,7 +535,7 @@ b. Step 6a. allowed for temporal analyses - like examining whether newer recipes
 
 <p>Distribution of the average percentage of daily value in sugar (<code class="language-plaintext highlighter-rouge">sugar_PDV</code>) for recipes at or below 2,000 calories in recipes by year (<code class="language-plaintext highlighter-rouge">year</code>)</p>
 
-<p>The bar chart reveals that the <strong>average sugar percentage of daily value</strong> in recipes has remained relatively stable since 2008, but shows a noticable <strong>increase beginning around 2015</strong>, with peaks in <strong>2015 and 2018</strong>. The aforementioned trend suggests that in recent years, users may have submitted <strong>sweeter or less health-conscious recipes</strong>. To ensure a more accurate representation of recipes, this analysis only includes recipes with <strong>2,000 calories or fewer</strong> as those above that threshold contained <strong>extreme outliers in sugar content</strong> that skewed the data.</p>
+<p>The bar chart reveals that the <strong>average sugar percentage of daily value</strong> in recipes has remained relatively stable since 2008, but shows a noticeable <strong>increase beginning around 2015</strong>, with peaks in <strong>2015 and 2018</strong>. The aforementioned trend suggests that in recent years, users may have submitted <strong>sweeter or less health-conscious recipes</strong>. To ensure a more accurate representation of recipes, this analysis only includes recipes with <strong>2,000 calories or fewer</strong> as those above that threshold contained <strong>extreme outliers in sugar content</strong> that skewed the data.</p>
 
 <iframe src="assets/fig4.html" width="800" height="600" frameborder="0"></iframe>
 
@@ -608,7 +614,7 @@ b. Step 6a. allowed for temporal analyses - like examining whether newer recipes
 
 <h3 id="imputation">Imputation</h3>
 
-<p>Only the missing values in the <code class="language-plaintext highlighter-rouge">rating</code> column needed to be imputed with a value of <code class="language-plaintext highlighter-rouge">Na.N</code> because the <code class="language-plaintext highlighter-rouge">rating</code> column was the only column from the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset that contained missing values for some of the rows.</p>
+<p>Only the missing values in the <code class="language-plaintext highlighter-rouge">rating</code> column needed to be imputed with a value of <code class="language-plaintext highlighter-rouge">Na.N</code> because the <code class="language-plaintext highlighter-rouge">rating</code> column was the only column from the <code class="language-plaintext highlighter-rouge">RAW_interactions.csv</code> dataset that contained missing values for some rows.</p>
 
 <h2 id="framing-a-prediction-problem">Framing a Prediction Problem</h2>
 
@@ -667,7 +673,7 @@ The R<sup>2</sup> value measures the proportion of variance in the response vari
 
 <p>I selected the best model by evaluating its performance using 5-fold cross-validation, with the R<sup>2</sup> metric as the evaluation metric. The R<sup>2</sup> metric is an appropriate metric for regression tasks because it quantifies how much of the variance in the response variable is explained by the model.</p>
 
-<p>The final model achieved an R<sup>2</sup> score of <strong>0.4502</strong>, a substantial improvement over the baseline model’s R<sup>2</sup> score of 0.0003. The improvement in the R<sup>2</sup> score suggrsts that incorporating domain knowledge through new features and using a more expressive model significantly improved the model’s ability to predict average recipe ratings.</p>
+<p>The final model achieved an R<sup>2</sup> score of <strong>0.4502</strong>, a substantial improvement over the baseline model’s R<sup>2</sup> score of 0.0003. The improvement in the R<sup>2</sup> score suggests that incorporating domain knowledge through new features and using a more expressive model significantly improved the model’s ability to predict average recipe ratings.</p>
 
 
             

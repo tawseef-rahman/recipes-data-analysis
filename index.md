@@ -30,7 +30,9 @@ In this project, I take a look at a recipes dataset. I will...
 
 The question that I am investigating in my project is:
 
-> Do recipes with more reviews (`review` count) have a higher average rating (`avg_rating`)?
+<div class="primer-spec-callout info" markdown="1">
+   Do recipes with more reviews (`review` count) have a higher average rating (`avg_rating`)?
+</div>
 
 Understanding this relationship could help users make more informed decisions when selecting recipes. If there is a strong correlation between the number of reviews and the average rating, it may suggest that popular recipes tend to be better received - or that crowd consensus leads to more accurate ratings over time. This insight could also benefit food bloggers, content creators, and developers of food recommendation systems.
 
@@ -76,7 +78,7 @@ Before analyzing the relationship between review count and average rating, it wa
    <br>
    a. I then calculated the mean rating for each recipe using the cleaned ratings and merged this value back into the main dataset as a new column, `avg_rating`.
    <br>
-   b. The `avg_rating` column is central to my project question. By aggregating this value for each recipe, I can copare it meaningfully to the number of reviews it received.
+   b. The `avg_rating` column is central to my project question. By aggregating this value for each recipe, I can compare it meaningfully to the number of reviews it received.
 6. Extracting the Year of Submission
    <br>
    a. The `date` column in the `RAW_interactions.csv` dataset records the timestamp of each interaction. I converted the date into a `year` column to make it easier for me to analyze trends over time.
@@ -95,7 +97,7 @@ Here's the `head` of the cleaned `merged_recipes_df` DataFrame:
 
 Distribution of average ratings (`avg_rating`):
 
-The histogram shows that the distribution of average recipe ratings is **left-skewed**, with most recipes receiving high ratings. However, there is a noticable drop between the number of recipes with an **average rating of 4.5** and those with a **perfect 5.0**, suggesting that while many recipes are well-received, far fewer consistently earn top marks.
+The histogram shows that the distribution of average recipe ratings is **left-skewed**, with most recipes receiving high ratings. However, there is a noticeable drop between the number of recipes with an **average rating of 4.5** and those with a **perfect 5.0**, suggesting that while many recipes are well-received, far fewer consistently earn top marks.
 
 <iframe
 src="assets/fig1.html"
@@ -136,7 +138,7 @@ frameborder="0"
 
 Distribution of the average percentage of daily value in sugar (`sugar_PDV`) for recipes at or below 2,000 calories in recipes by year (`year`)
 
-The bar chart reveals that the **average sugar percentage of daily value** in recipes has remained relatively stable since 2008, but shows a noticable **increase beginning around 2015**, with peaks in **2015 and 2018**. The aforementioned trend suggests that in recent years, users may have submitted **sweeter or less health-conscious recipes**. To ensure a more accurate representation of recipes, this analysis only includes recipes with **2,000 calories or fewer** as those above that threshold contained **extreme outliers in sugar content** that skewed the data.
+The bar chart reveals that the **average sugar percentage of daily value** in recipes has remained relatively stable since 2008, but shows a noticeable **increase beginning around 2015**, with peaks in **2015 and 2018**. The aforementioned trend suggests that in recent years, users may have submitted **sweeter or less health-conscious recipes**. To ensure a more accurate representation of recipes, this analysis only includes recipes with **2,000 calories or fewer** as those above that threshold contained **extreme outliers in sugar content** that skewed the data.
 
 <iframe
 src="assets/fig4.html"
@@ -155,7 +157,7 @@ The pivot table summarizes **yearly trends in both average recipe ratings and to
 
 ### Imputation
 
-Only the missing values in the `rating` column needed to be imputed with a value of `Na.N` because the `rating` column was the only column from the `RAW_interactions.csv` dataset that contained missing values for some of the rows.
+Only the missing values in the `rating` column needed to be imputed with a value of `Na.N` because the `rating` column was the only column from the `RAW_interactions.csv` dataset that contained missing values for some rows.
 
 ## Framing a Prediction Problem
 
@@ -203,4 +205,4 @@ I then used **GridSearchCV** to tune the hyperparameters of the Random Forest mo
 
 I selected the best model by evaluating its performance using 5-fold cross-validation, with the R<sup>2</sup> metric as the evaluation metric. The R<sup>2</sup> metric is an appropriate metric for regression tasks because it quantifies how much of the variance in the response variable is explained by the model.
 
-The final model achieved an R<sup>2</sup> score of **0.4502**, a substantial improvement over the baseline model's R<sup>2</sup> score of 0.0003. The improvement in the R<sup>2</sup> score suggrsts that incorporating domain knowledge through new features and using a more expressive model significantly improved the model's ability to predict average recipe ratings.
+The final model achieved an R<sup>2</sup> score of **0.4502**, a substantial improvement over the baseline model's R<sup>2</sup> score of 0.0003. The improvement in the R<sup>2</sup> score suggests that incorporating domain knowledge through new features and using a more expressive model significantly improved the model's ability to predict average recipe ratings.
